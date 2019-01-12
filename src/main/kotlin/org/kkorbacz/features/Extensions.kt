@@ -4,15 +4,17 @@ import java.io.File
 
 fun main(args: Array<String>) {
 
-    // [e, b, c, d]
-    "abcd".map { if (it == 'a') 'e' else it }
+    // cd
+    "abcd".removePrefix("ab")
+
+    // false
+    "abcd".isBlank()
 
     // 2
     listOf(1, 2).max()
 
     // the-file
     File("/home/username/the-file.txt").nameWithoutExtension
-
 
     // abcdef
     buildString {
@@ -23,5 +25,4 @@ fun main(args: Array<String>) {
 }
 
 fun buildString(builderAction: StringBuilder.() -> Unit): String =
-        // mention also about also let and run
         StringBuilder().apply(builderAction).toString()
