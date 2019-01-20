@@ -14,7 +14,13 @@ class SomeImplementation: SomeAbstractClassWithLambda({
     println(someFunction()) // uses local function
 })
 
+fun test(arg: Int) {
+    println(arg)    // 1
+    val arg = 2
+    println(arg)    // 2
+}
 
 fun main(args: Array<String>) {
     SomeImplementation().someLabmda.invoke()
+    test(1)
 }

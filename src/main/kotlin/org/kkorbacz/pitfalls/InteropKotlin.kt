@@ -1,5 +1,18 @@
 package org.kkorbacz.pitfalls
 
+data class Person(val name: String)
+
+data class CustomResponse(val items: List<Person>)
+
+fun performGetRequest(): Promise<CustomResponse> {
+    return Promise(CustomResponse(emptyList()))
+}
+
+// non-nullable return type, but in fact null is returned inside of promise
+fun getPromise() : Promise<Person> =
+        performGetRequest()
+                .map { it -> it.items.firstOrNull() }
+
 fun main(args: Array<String>) {
 
     // ***** 1 *****
@@ -21,4 +34,8 @@ fun main(args: Array<String>) {
 
     // [Nobody expects that I was added to the collection, second elem, third elem]
     println(list)
+
+    // ***** 3 *****
+    // java.lang.NullPointerException
+    getPromise().value.name.toUpperCase()
 }
