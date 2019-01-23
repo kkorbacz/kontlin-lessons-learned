@@ -1,26 +1,24 @@
 package org.kkorbacz.pitfalls
 
 
-fun someFunction() = "Some message from first function"
+fun someFunction() = 1
+val someVariable = 1
 
-abstract class SomeAbstractClassWithLambda(val someLabmda: () -> Unit)
-
-class SomeImplementation: SomeAbstractClassWithLambda({
-
-    println(someFunction()) // uses top level function above
-
-    fun someFunction() = "LOL, I'm the JavaScript ¯\\_(ツ)\\_/¯"
-
-    println(someFunction()) // uses local function
-})
 
 fun test(arg: Int) {
-    println(arg)    // 1
-    val arg = 2
-    println(arg)    // 2
+    println(arg)    // prints  1
+    val arg = 2     // highlights with warning: Name shadowed
+    println(arg)    // prints 2
 }
 
 fun main(args: Array<String>) {
-    SomeImplementation().someLabmda.invoke()
     test(1)
+
+    println(someVariable) // prints  1
+    val someVariable = 2 // no warning
+    println(someVariable) // prints  2
+
+    println(someFunction()) // prints  1
+    fun someFunction() = 2 // no warning
+    println(someFunction()) // prints  2
 }

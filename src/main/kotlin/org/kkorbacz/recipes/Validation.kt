@@ -4,7 +4,7 @@ package org.kkorbacz.recipes
 class ConstructorValidated {
     val number: Int
 
-    constructor(number: Int) { // Suggests to convert to init block way
+    constructor(number: Int) { // IDE suggests to convert to init block way
         check(number > 0) { "Expected number greater than zero" }
         this.number = number
     }
