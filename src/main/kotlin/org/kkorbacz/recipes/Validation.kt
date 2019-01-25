@@ -10,7 +10,7 @@ class ConstructorValidated {
     }
 }
 
-class InitBlockValidated(val number: Int) {
+class InitBlockValidated(val number: Int) { // You can't add any extra code here
     init {
         check(number > 0) { "Expected number greater than zero" }
     }

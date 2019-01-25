@@ -6,6 +6,7 @@ val TOP_VAL_WITHOUT_CONST = 1       // compiled to private static final and corr
 
 //const val TOP_OBJECT = Pair(1, 1) // compilation error: only primitives and String are allowed
 
+
 class SomeClass {
 //  const val CLASS_CONST = 1       //compilation error: const vals are allowed only on top level or in objects
 
@@ -31,5 +32,5 @@ class SomeClass {
 object SomeObject {
     const val OBJECT_PRIMITIVE = 1          // public static final field
 
-//    const val OBJECT_OBJECT = Pair(1, 1)  // compilation error: only primitives and String are allowed
+//  const val OBJECT_OBJECT = Pair(1, 1)    // compilation error: only primitives and String are allowed
 }

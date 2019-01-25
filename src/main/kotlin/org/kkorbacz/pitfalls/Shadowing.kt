@@ -14,11 +14,11 @@ fun test(arg: Int) {
 fun main(args: Array<String>) {
     test(1)
 
-    println(someVariable) // prints  1
-    val someVariable = 2 // no warning
-    println(someVariable) // prints  2
+    println(someVariable)   // prints  1
+    val someVariable = 2    // no warning at all!
+    println(someVariable)   // prints  2
 
-    println(someFunction()) // prints  1
-    fun someFunction() = 2 // no warning
-    println(someFunction()) // prints  2
+    println(someFunction())     // prints  1
+    fun someFunction() = 2 // no warning at all!
+    println(someFunction())     // prints  2
 }
