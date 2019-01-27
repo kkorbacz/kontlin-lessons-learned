@@ -4,14 +4,27 @@ data class Person(val name: String)
 
 data class CustomResponse(val items: List<Person>)
 
-fun performGetRequest(): Promise<CustomResponse> {
-    return Promise(CustomResponse(emptyList()))
+// dummy implementation of some generic rest client
+abstract class RestClient {
+    fun performGetRequest() : Promise<CustomResponse> {
+        println("Performing get request ...")
+        return Promise(CustomResponse(emptyList()))
+    }
+}
+
+interface OurRestClient {
+    fun getPerson(): Promise<Person>
 }
 
 // non-nullable return type, but in fact null is returned inside of promise
-fun getPromise() : Promise<Person> =
-        performGetRequest()
+// and decision about how to treat the platform type is made for us in an interface: OurRestClient
+// in effect when e.g. using code completion for override we can omit important decision point and get painful NPE in future
+class OurRestClientImpl : OurRestClient, RestClient() {
+    override fun getPerson(): Promise<Person> {
+        return performGetRequest()
                 .map { it -> it.items.firstOrNull() }
+    }
+}
 
 fun main(args: Array<String>) {
 
@@ -37,5 +50,5 @@ fun main(args: Array<String>) {
 
     // ***** 3 *****
     // java.lang.NullPointerException
-    getPromise().value.name.toUpperCase()
+    OurRestClientImpl().getPerson().value.name.toUpperCase()
 }

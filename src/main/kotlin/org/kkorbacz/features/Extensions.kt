@@ -49,7 +49,6 @@ open class Table {
 
     fun integer(name: String): Column<Int> = Column()
     fun varchar(name: String, length: Int): Column<String> = Column()
-
 }
 
 object Country : Table() {
