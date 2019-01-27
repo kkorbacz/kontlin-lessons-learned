@@ -1,11 +1,9 @@
 package org.kkorbacz.features
 
 import java.io.File
+import java.time.LocalDate
 
 fun main(args: Array<String>) {
-
-    // cd
-    "abcd".removePrefix("ab")
 
     // false
     "abcd".isBlank()
@@ -16,12 +14,16 @@ fun main(args: Array<String>) {
     // the-file
     File("/home/username/the-file.txt").nameWithoutExtension
 
+    // true
+    LocalDate.now().isAfterOrEqual(LocalDate.of(2019, 1,1))
+
     // abcdef
     buildString {
         append("abcd")
         append("ef")
     }
 
+    // lambda with receiver & apply extension function
     fun buildString(builderAction: StringBuilder.() -> Unit): String =
             StringBuilder().apply(builderAction).toString()
 
@@ -34,6 +36,8 @@ fun Any?.toString(): String {
     if (this == null) return "null"
     return toString()
 }
+
+fun LocalDate.isAfterOrEqual(other: LocalDate): Boolean = this.isAfter(other) || this.isEqual(other)
 
 operator fun List<Int>.times(by: Int): List<Int> {
     return this.map { it * by }
