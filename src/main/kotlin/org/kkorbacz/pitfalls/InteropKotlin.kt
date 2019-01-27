@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
     val integerField = objectUnderTest.integerField
 
     // java.lang.NullPointerException
-    integerField.times(2)
+    integerField * 2
 
     // ***** 2 *****
     val list = listOf("first elem", "second elem", "third elem")

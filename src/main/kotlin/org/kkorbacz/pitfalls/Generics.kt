@@ -2,7 +2,7 @@ package org.kkorbacz.pitfalls
 
 class Processor<T> {
     fun process(value: T) {
-        value?.hashCode()   // it would not emit any warning if dot is used
+        value?.hashCode()
     }
 }
 
