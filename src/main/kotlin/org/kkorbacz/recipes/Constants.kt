@@ -6,6 +6,10 @@ val TOP_VAL_WITHOUT_CONST = 1       // compiled to private static final and corr
 
 //const val TOP_OBJECT = Pair(1, 1) // compilation error: only primitives and String are allowed
 
+val TOP_OBJECT = Pair(1, 1) //
+
+@JvmField val TOP_JVM_FIELD_OBJECT = Pair(1, 1)
+
 class SomeClass {
 //  const val CLASS_CONST = 1       //compilation error: const vals are allowed only on top level or in objects
 

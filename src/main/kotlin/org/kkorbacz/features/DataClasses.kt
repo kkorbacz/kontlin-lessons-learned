@@ -13,7 +13,11 @@ fun main(args: Array<String>) {
     // John, Doe
     println("$firstName, $lastName")
 
+    val personCopy = person.copy(firstName = "Jane")
     // Person(firstName=Jane, lastName=Doe, age=27)
-    println(person.copy(firstName = "Jane"))
+    println(personCopy)
+
+    // false
+    println("${personCopy == person}")
 }
 

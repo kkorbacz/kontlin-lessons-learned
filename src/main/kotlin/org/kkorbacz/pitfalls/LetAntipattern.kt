@@ -2,11 +2,11 @@ package org.kkorbacz.pitfalls
 
 fun main(args: Array<String>) {
 
-    val somethingNullable = "Data to be consumed"
+    fun somethingNullable(): String? = "Data to be consumed"
 
     // I am doing something with: [Data to be consumed] ...
     // Error handling activity ...
-    somethingNullable?.let {
+    somethingNullable()?.let {
         doSomething(it)
     } ?: errorHandling()
 }

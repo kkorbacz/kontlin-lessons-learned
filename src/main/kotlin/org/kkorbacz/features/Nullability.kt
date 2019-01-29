@@ -6,13 +6,14 @@ import java.time.format.DateTimeFormatter
 fun main(args: Array<String>) {
     // defaultString
     val nullString: String? = null
-    nullString?.toUpperCase()?.trim() ?: "defaultString"
+    val result = nullString?.toUpperCase()?.trim() ?: "defaultString"
+    println(result)
+
+    fun maybeDateAsString(): String? = "2019-01-01"
 
     // 2019-01-01
-    maybeDateAsString()?.let {
+    val dateAsString = maybeDateAsString()?.let {
         LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE)
     } ?: LocalDate.now()
-
+    println(dateAsString)
 }
-
-private fun maybeDateAsString(): String? = "2019-01-01"

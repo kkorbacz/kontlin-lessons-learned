@@ -18,14 +18,15 @@ fun main(args: Array<String>) {
     LocalDate.now().isAfterOrEqual(LocalDate.of(2019, 1,1))
 
     // abcdef
-    buildString {
-        append("abcd")
-        append("ef")
-    }
 
     // lambda with receiver & apply extension function
     fun buildString(builderAction: StringBuilder.() -> Unit): String =
             StringBuilder().apply(builderAction).toString()
+
+    buildString {
+        append("abcd")
+        append("ef")
+    }
 
     // [20, 24, 28]
     listOf(5, 6, 7) * 4
