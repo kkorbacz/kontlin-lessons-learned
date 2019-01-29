@@ -2,13 +2,13 @@ package org.kkorbacz.pitfalls
 
 class Processor<T> {
     fun process(value: T) {
-        value?.hashCode()
+        println(value)
     }
 }
 
 class SafeProcessor<T: Any> {
     fun process(value: T) {
-        value.hashCode()
+        println(value)
     }
 }
 
