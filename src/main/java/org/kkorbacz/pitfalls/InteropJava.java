@@ -3,7 +3,7 @@ package org.kkorbacz.pitfalls;
 import java.util.List;
 
 public class InteropJava {
-    private Integer integerField;
+    private final Integer integerField;
 
     public InteropJava(Integer integerField) {
         this.integerField = integerField;

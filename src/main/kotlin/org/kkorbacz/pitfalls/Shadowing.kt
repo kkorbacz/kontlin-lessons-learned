@@ -2,7 +2,7 @@ package org.kkorbacz.pitfalls
 
 fun test(arg: Int) {
     println(arg)    // prints  1
-    val arg = 2     // at lest highlights with warning: Name shadowed
+    val arg = 2     // at least highlights with warning: Name shadowed
     println(arg)    // prints 2
 }
 
