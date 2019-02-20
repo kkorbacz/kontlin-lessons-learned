@@ -60,3 +60,12 @@ object Country : Table() {
     val id = integer("id").autoIncrement().primaryKey()
     val name = varchar("name", 50)
 }
+
+fun someScopeFunctions() {
+    listOf(2, 4)
+            .find { it % 2 == 1 }
+            .also { println("do some e.g. logging") }
+            ?.let { moreLogic(it) }
+}
+
+private fun moreLogic(number: Int) {}
